@@ -10,8 +10,12 @@ function FormComponent() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <textarea value={description} onChange={e => setDescription(e.target.value)} />
-      <button type="submit">Submit</button>
+      <div>
+        <textarea value={description} onChange={e => setDescription(e.target.value)} />
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
     </form>
   );
 }
