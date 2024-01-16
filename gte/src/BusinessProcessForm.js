@@ -10,6 +10,7 @@ function FormComponent() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h2>Let's start with an overview of the business process.</h2>
       <div>
         <textarea
           value={description}
