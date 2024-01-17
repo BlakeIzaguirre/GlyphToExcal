@@ -2,10 +2,16 @@ import React, { useState } from "react";
 
 function FormComponent() {
   const [description, setDescription] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // TODO: Send data to the backend
+    if (description.trim() === "") {
+      setError("Description is required");
+    } else {
+      setError("");
+      // TODO: Send data to the backend
+    }
   };
 
   return (
@@ -17,6 +23,7 @@ function FormComponent() {
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Enter your business process description here..."
         />
+        {error && <p style={{ color: "red" }}>{error}</p>}
       </div>
       <div>
         <button className="submit-button" type="submit">
