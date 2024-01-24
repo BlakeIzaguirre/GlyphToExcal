@@ -22,6 +22,8 @@ function FormComponent() {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Enter your business process description here..."
+          rows="25"
+          cols="150"
         />
         {error && <p style={{ color: "red" }}>{error}</p>}
       </div>
