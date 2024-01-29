@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Axios from "axios";
 
 function FormComponent() {
   const [description, setDescription] = useState("");
@@ -10,7 +11,28 @@ function FormComponent() {
       setError("Description is required");
     } else {
       setError("");
-      // TODO: Send data to the backend
+      // Send data to the backend
+      axios
+        .post(
+          "https://api.openai.com/v1/engines/davinci-codex/completions",
+          {
+            prompt: description,
+            max_tokens: 60,
+          },
+          {
+            headers: {
+              Authorization: `Bearer YOUR_OPENAI_KEY`,
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          // handle the response from the API
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          // handle the error
+        });
     }
   };
 
