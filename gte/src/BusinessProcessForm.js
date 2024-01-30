@@ -11,7 +11,7 @@ function FormComponent() {
       setError("Description is required");
     } else {
       setError("");
-      // Send data to the backend
+      // Send
       axios
         .post(
           "https://api.openai.com/v1/engines/davinci-codex/completions",
